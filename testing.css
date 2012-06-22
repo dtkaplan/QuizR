@@ -1,0 +1,46 @@
+.Qchoice {
+  background-color: #ccc;
+}
+.Qselected {
+  background-color: #0a0;
+}
+.Qwrong {
+  background-color: #f66;
+}
+.Qcorrect {
+  background-color: #99f;
+}
+.Qhint {
+  display: none;
+}
+.Qscore {
+  background-color: #bbb;
+  padding: 0px;
+  border-style: solid;
+  border-width: 1px;
+  position: relative;
+  left: 10px;
+  font-size: x-small;
+}
+.QhintShow{
+  background-color: #bbf;
+  padding: 0px;
+  border-style:solid;
+  border-width:1px;
+  font-size: x-small;
+}
+.Qright {
+  display: none;
+}
+.QgotIt {
+  background-color: #9f9;
+}
+.QwrongChoice{
+  background-color: #f99;
+}
+.QpageHeader {
+  background-color: #bbb;
+  padding: 1px;
+  border-style: solid;
+  border-width: 1px;
+}

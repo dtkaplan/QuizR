@@ -1,0 +1,25 @@
+Testing out QuizR with Rmd/Markdown
+========================================================
+
+Load the package.  For now, there is just the one file
+```{r}
+source("package/R/markdown.R")
+```
+
+At some point at the top of the document, provide a place for the score, login, etc. to be entered with the ```QuizR.start()```.  
+
+`r I(QuizR.start("NameOfDocument"))`
+
+Questions are divided into three levels.
+1. Problems
+2. Items such as ```TorF``` or ```manyChoices```
+3. Choices - the individual components in true-or-false or multiple-choice items.
+
+The division into "problems" is a convenience for organization.  The basic unit is an "item", which consists of one or more choices.  For the most part, 
+
+#### Problem 1 
+Answer these important questions. `r I(nextProb())`
+1. The rain in Spain falls mainly in the ...`r I(manyChoices("train","airplane",correct="plane"))`
+2. The value of $\pi$ is closest to `r I(manyChoices(2.13,correct=3.14,4.31,34.1,hint="22/7ths"))`
+3. `r I(TorF(FALSE,hint="Be nice!"))`: Might is right.
+
