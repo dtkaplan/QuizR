@@ -3,7 +3,7 @@ Testing out QuizR with Rmd/Markdown
 
 Load the package.  For now, there is just the one file
 ```{r}
-source("package/R/markdown.R")
+source("markdown.R")
 ```
 
 At some point at the top of the document, provide a place for the score, login, etc. to be entered with the ```QuizR.start()```.  
@@ -19,7 +19,36 @@ The division into "problems" is a convenience for organization.  The basic unit 
 
 #### Problem 1 
 Answer these important questions. `r I(nextProb())`
-1. The rain in Spain falls mainly in the ...`r I(manyChoices("train","airplane",correct="plane"))`
-2. The value of $\pi$ is closest to `r I(manyChoices(2.13,correct=3.14,4.31,34.1,hint="22/7ths"))`
+1. The rain in Spain falls mainly in the ...`r I(manyChoices("train","airplane",correct="plane",hint="My Fair Lady"))`
+2. The value of $\pi$ is closest to `r I(manyChoices(2.13,correct=3.14,4.31,34.1))`
 3. `r I(TorF(FALSE,hint="Be nice!"))`: Might is right.
 
+#### Problem 2
+`r I(nextProb())`
+"When in the course of ... " `r I(manyChoices("my studies","current events", correct="human events",hint="Declaration of Independence"))`
+
+#### Problem 3
+```{r results="hide",echo=FALSE}
+prob=newMC(hint="Overall hint")
+```
+Which of these is a fish? 
+`r I(prob(FALSE))` A mongoose.
+`r I(prob(TRUE,hint="Look carefully at the name!"))` A catfish.
+`r I(prob(FALSE))` An elephant, or perhaps $\int x^2 dx$
+`r I(prob())`
+
+#### Problem 4
+```{r results="hide",echo=FALSE}
+prob=newMC(hint="Overall hint",markers=c("First","Second","And the Third"))
+```
+Which of these is the start of the Gettysburg Address?
+`r I(prob(FALSE,hint="Lincoln or Jefferson?"))` When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.
+We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.
+`r I(prob(FALSE,hint="1863 or 1789?"))` We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
+`r I(prob(TRUE,hint="Forsooth!"))` Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
+
+Now we are engaged in a great civil war, testing whether that nation, or any nation, so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.
+
+`r I(prob())`
+
+There seems to be a problem with a paragraph break between different choices in the multiple choice.  If there is an intervening paragraph, the items within the MC are not associated one with the other.

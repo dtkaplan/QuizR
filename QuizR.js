@@ -3,6 +3,14 @@ var score="";
 var hintstr="";
 $(document).ready( function(){
   $('.Qproblem').prepend("<span class='QhintShow'></span>");
+  // Set up the hint popovers
+  $('.Qchoice').each( function(){
+    response=$(this).children('.Qhint').text();
+    if(response.length > 0 ){ // Show hint if it's there.
+      $(this).popover({title:'Hint', content: response});
+    }
+  });
+  //popover({title:'Hint', content:$(this).children('.Qhint').text()});
   // Click handler for a choice
   $('.Qset .Qchoice').click( function(event) {
     var ntries=0; 
@@ -13,11 +21,12 @@ $(document).ready( function(){
     $(this).addClass("Qselected");
     if ($(this).children('.Qright').text() == 'No'){
       $(this).addClass("QwrongChoice");
-      response=$(this).children('.Qhint').text(); // Hint 
-      if (response.length > 0 ) { // Show hint if it's there.
-        response="Hint: ".concat(response);
-        $('.QhintShow').text(response);
-      }
+  //  OLD LOGIC for displaying hints.    
+  //    response=$(this).children('.Qhint').text(); // Hint 
+  //    if (response.length > 0 ) { // Show hint if it's there.
+  //      response="Hint: ".concat(response);
+  //      $('.QhintShow').text(response);
+  //    }
       
     }
     if ($(this).children('.Qright').text() == 'Yes'){
