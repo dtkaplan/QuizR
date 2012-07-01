@@ -39,6 +39,12 @@ Which of these is a fish?
 
 #### Problem 4
 ```{r results="hide",echo=FALSE}
+prob=newMC(hint="Overall hint",markers=c("button","here", "here, instead"))
+```
+Trying an "in-line" multiple choice problem.  If you like this sentence, then select this `r I(prob(FALSE,hint="You do?"))`.  On the other hand, some people think this is a much nicer sentence, and you're welcome to indicate so `r I(prob(TRUE,hint="Much better."))`.  But if you're really strange, you might choose to click `r I(prob(TRUE,hint="Right on!"))`.
+
+#### Problem 5
+```{r results="hide",echo=FALSE}
 prob=newMC(hint="Overall hint",markers=c("First","Second","And the Third"))
 ```
 Which of these is the start of the Gettysburg Address?
